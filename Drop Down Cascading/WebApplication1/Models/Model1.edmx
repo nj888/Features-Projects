@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EMISDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblMasterAcademicDetails">
+          <Key>
+            <PropertyRef Name="MasterAcademicDetailsId" />
+          </Key>
+          <Property Name="MasterAcademicDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalInfoId" Type="int" />
+          <Property Name="BatchNo" Type="int" />
+          <Property Name="RollNo" Type="int" />
+          <Property Name="TuRegistrationNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PreviousDegree" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmissionDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassYear" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ThesisTitle" Type="nvarchar(max)" />
+          <Property Name="VivaDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsPassed" Type="bit" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="EMISDBModelStoreContainer">
+          <EntitySet Name="tblMasterAcademicDetails" EntityType="Self.tblMasterAcademicDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMISDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblMasterAcademicDetail">
+          <Key>
+            <PropertyRef Name="MasterAcademicDetailsId" />
+          </Key>
+          <Property Name="MasterAcademicDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalInfoId" Type="Int32" />
+          <Property Name="BatchNo" Type="Int32" />
+          <Property Name="RollNo" Type="Int32" />
+          <Property Name="TuRegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreviousDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdmissionDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ThesisTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VivaDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsPassed" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EMISDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblMasterAcademicDetails" EntityType="Self.tblMasterAcademicDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMISDBModelStoreContainer" CdmEntityContainer="EMISDBEntities">
+          <EntitySetMapping Name="tblMasterAcademicDetails">
+            <EntityTypeMapping TypeName="EMISDBModel.tblMasterAcademicDetail">
+              <MappingFragment StoreEntitySet="tblMasterAcademicDetails">
+                <ScalarProperty Name="MasterAcademicDetailsId" ColumnName="MasterAcademicDetailsId" />
+                <ScalarProperty Name="PersonalInfoId" ColumnName="PersonalInfoId" />
+                <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="TuRegistrationNo" ColumnName="TuRegistrationNo" />
+                <ScalarProperty Name="PreviousDegree" ColumnName="PreviousDegree" />
+                <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="PassYear" ColumnName="PassYear" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="ThesisTitle" ColumnName="ThesisTitle" />
+                <ScalarProperty Name="VivaDate" ColumnName="VivaDate" />
+                <ScalarProperty Name="IsPassed" ColumnName="IsPassed" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

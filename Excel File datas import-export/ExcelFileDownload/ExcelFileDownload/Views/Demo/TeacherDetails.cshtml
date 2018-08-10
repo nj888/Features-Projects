@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ExcelFileDownload.Models.Teacher>
+
+<table class="table" style="border:2px solid">
+    <tr class="btn-success">
+        <th>Teacher Name</th>
+        <th>Teacher Type</th>
+
+    </tr>
+  @foreach (var item in Model)
+  {
+
+        <tr class="btn-primary">
+
+            <td>@item.TeacherName</td>
+            <td>@item.TeacherType</td>
+        </tr>
+
+    }
+</table>

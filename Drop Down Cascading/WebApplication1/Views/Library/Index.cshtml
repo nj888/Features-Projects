@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.tblMasterAcademicDetail
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        $("#BatchNo").change(function () {
+            $("#State").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("getRollno")',
+
+                dataType: 'json',
+
+                data: { id: $("#BatchNo").val() },
+
+
+               success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#State').append('<option value="' + value.RollNo + '">' + value.RollNo + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve country states.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+
+    </script>   
+</head>
+<body>
+    <div> 
+        @Html.DropDownListFor(model=>model.BatchNo,new SelectList(ViewBag.BatchList,"BatchNo","BatchNo"),"Choose Batch")
+        @Html.DropDownList("State", new SelectList(string.Empty, "Value", "Text"), "--Select State--", new { style = "width:200px" })  
+    </div>
+</body>
+</html>

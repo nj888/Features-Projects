@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ExcelFileDownload.Models.BookDetail>
+<table class="table" style="border:2px solid">
+    <tr class="btn-primary">
+        <th>Order Number</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Price</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+      
+        <tr class="btn-info">
+
+            <td>@item.BookName</td>
+            <td>@item.Author</td>
+            <td>@item.Publisher</td>
+            <td>@item.Price</td>
+        </tr>
+
+    }
+</table>

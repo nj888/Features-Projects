@@ -1,0 +1,5 @@
+copy "ValidateOnlyIncomingValuesAttribute.cs" into the project.
+
+copy the "two jquerry.validate" files into scripts folder of the project.
+
+copy "ValidationClass.css" into css folder of the project.
